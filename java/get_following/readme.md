@@ -8,4 +8,4 @@ This sample project was created to implement loading following list.
 
 Input a steemit account into the edit text view, then this app will show its following list.
 
-<center><img src="./screenshot-01.png" width="580" height="1110"></center>
+<img src="./screenshot-01.png" width="540" height="1110">
