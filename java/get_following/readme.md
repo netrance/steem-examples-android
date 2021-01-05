@@ -16,7 +16,8 @@ Input a steemit account into the edit text view, then this app will show its fol
 # References
 
 * API
-  * [get_following](https://developers.steem.io/apidefinitions/condenser-api#condenser_api.get_following)
+  * [condenser_api.get_following](https://developers.steem.io/apidefinitions/condenser-api#condenser_api.get_following)
+  * [follow_api.get_following](https://developers.steem.io/apidefinitions/#follow_api.get_following)
 * Espresso
   * Overview: [In English](https://developer.android.com/training/testing/espresso) [한국어](https://developer.android.com/training/testing/espresso?hl=ko) 
   * Setup instructions: [In English](https://developer.android.com/training/testing/espresso/setup) [한국어](https://developer.android.com/training/testing/espresso/setup?hl=ko)
