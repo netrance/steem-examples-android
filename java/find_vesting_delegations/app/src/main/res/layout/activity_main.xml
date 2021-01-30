@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <import type="android.view.View" />
+        <import type="lee.dorian.steem.examples.find_vesting_delegations.MainViewModel" />
+
+        <variable
+            name="viewModel"
+            type="MainViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <!-- To input a Steemit account -->
+        <EditText
+            android:id="@+id/etAccount"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Input Steem account"
+            android:minLines="1"
+            android:maxLines="1"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <!-- To show reputation list -->
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvVestingDelegationList"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/etAccount"
+            app:items="@{viewModel.liveVestingDelegationList}" />
+
+        <!-- To show error message if it is failed to load reputation list -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:gravity="center"
+            android:text='@{(null != viewModel.liveError) ? viewModel.liveError.data : ""}'
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            android:visibility="@{(null != viewModel.liveError) ? View.VISIBLE : View.GONE}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/etAccount" />
+
+        <!-- To show loading progress as soon as inputing a Steemit account -->
+        <include
+            layout="@layout/layout_loading"
+            android:id="@+id/layoutLoading"
+            android:visibility="@{(true == viewModel.liveProgress) ? View.VISIBLE : View.GONE}" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>
